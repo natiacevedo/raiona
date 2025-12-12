@@ -1,3 +1,4 @@
+// === CERRAR NAVBAR AL HACER CLICK ===
 document.querySelectorAll('.navbar-collapse .nav-link').forEach(link => {
   link.addEventListener('click', () => {
     const navbar = document.querySelector('.navbar-collapse');
@@ -17,7 +18,7 @@ function generarCatalogo() {
     const tipos = p.tipo ? p.tipo.join(" ") : "";
 
     contenedor.innerHTML += `
-      <div class="col catalogo-item" data-tipo="${tipos}">
+      <div class="col catalogo-item animar" data-tipo="${tipos}">
         <a href="producto.html?id=${id}" class="text-decoration-none">
           <div class="card shadow h-100">
             <img src="${p.imagen}" alt="${p.titulo}">
@@ -32,23 +33,17 @@ function generarCatalogo() {
     `;
   }
 }
-
 generarCatalogo();
-
 
 // === FILTRAR CATALOGO ===
 function filtrarCatalogo(filtro) {
   const items = document.querySelectorAll("#catalogoCards .catalogo-item");
 
-  // 🔥 Marcar botón activo
-  document.querySelectorAll(".boton-filtro").forEach(btn => {
-    btn.classList.remove("activo");
-  });
+  document.querySelectorAll(".boton-filtro").forEach(btn => btn.classList.remove("activo"));
 
   const botonActivo = document.querySelector(`.boton-filtro[onclick="filtrarCatalogo('${filtro}')"]`);
   if (botonActivo) botonActivo.classList.add("activo");
 
-  // === Filtrado real ===
   items.forEach(item => {
     const tipo = item.getAttribute("data-tipo").split(" ");
     item.style.display = tipo.includes(filtro) ? "" : "none";
@@ -56,26 +51,41 @@ function filtrarCatalogo(filtro) {
 }
 
 /* Animaciones */
-
 document.addEventListener("DOMContentLoaded", () => {
     const elementos = document.querySelectorAll(".animar");
     const hash = window.location.hash;
 
-    // ⭐ 1) Si entrás desde index.html#catalogo → activar ya sin observer
     if (hash === "#catalogo") {
         elementos.forEach(el => el.classList.add("visible"));
-        return; // no usar IntersectionObserver en este caso
+        return;
     }
 
-    // ⭐ 2) Caso normal: activar con IntersectionObserver
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-                obs.unobserve(entry.target); // evitar flicker
+                obs.unobserve(entry.target);
             }
         });
     }, { threshold: 0.15 });
 
     elementos.forEach(el => observer.observe(el));
+});
+
+// === BOTÓN "VER CATALOGO" ===
+document.querySelector('.ver-catalogo').addEventListener('click', function(e){
+    e.preventDefault();
+    const target = document.querySelector('#catalogo');
+    const headerOffset = 80; // alto de tu header
+    const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+
+    // Cambiar hash y activar animación inmediatamente
+    history.pushState(null, null, '#catalogo');
+    target.classList.add("visible");
 });
