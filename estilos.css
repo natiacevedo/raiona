@@ -154,6 +154,23 @@ hr {
 
 /* Productos */
 
+/* Asegurar que el zoom no se salga de la card */
+#catalogoCards .catalogo-item .card {
+    overflow: hidden; /* Contiene el zoom dentro de la card */
+    border-radius: 20px; /* Mantener bordes redondeados si los tenés */
+}
+
+/* Zoom en la imagen */
+#catalogoCards .catalogo-item .card img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#catalogoCards .catalogo-item .card:hover img {
+    transform: scale(1.05); /* Zoom al pasar el mouse */
+    cursor: pointer; /* Indica clickeable */
+}
+
+
 .boton-filtro {
   background-color: var(--gris);
   border: var(--naranja) 1px solid;
