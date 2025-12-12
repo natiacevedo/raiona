@@ -59,24 +59,23 @@ function filtrarCatalogo(filtro) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const elementos = document.querySelectorAll(".animar");
+    const hash = window.location.hash;
 
+    // ⭐ 1) Si entrás desde index.html#catalogo → activar ya sin observer
+    if (hash === "#catalogo") {
+        elementos.forEach(el => el.classList.add("visible"));
+        return; // no usar IntersectionObserver en este caso
+    }
+
+    // ⭐ 2) Caso normal: activar con IntersectionObserver
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-                obs.unobserve(entry.target); // ⭐ deja de observar para evitar parpadeos
+                obs.unobserve(entry.target); // evitar flicker
             }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
     elementos.forEach(el => observer.observe(el));
-
-    /* ⭐ Activa de inmediato los que ya están visibles al cargar */
-    elementos.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add("visible");
-            observer.unobserve(el); // ⭐ también los sacamos aquí
-        }
-    });
 });
