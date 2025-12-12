@@ -69,4 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.2 });
 
     elementos.forEach(el => observer.observe(el));
+
+    /* ⭐ Activar inmediatamente los elementos ya visibles al cargar,
+       útil cuando entras a index.html#catalogo o cualquier sección */
+    elementos.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add("visible");
+        }
+    });
 });
