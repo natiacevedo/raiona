@@ -103,8 +103,8 @@ const closeModal = document.getElementById('closeModal');
 
 function abrirModal(data) {
     document.getElementById('modalTitulo').textContent = data.title;
-    document.getElementById('modalDepto').textContent = data.departamento;
-    document.getElementById('modalDescripcion').textContent = data.description;
+    document.getElementById('modalDepto').textContent = data.departamento;/* 
+    document.getElementById('modalDescripcion').textContent = data.description; */
 
     // Insertar imágenes
     const imgContainer = document.getElementById('modalImagenes');

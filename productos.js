@@ -1,67 +1,5 @@
 const productos = {
-      colgantegrey: {
-        id: "colgantegrey",
-        titulo: "Box Colgante Grey",
-        caracteristicas: [
-            "Cerradura con triple punto de anclaje.",
-            "Posibilidad de poner candado.",
-            "Brazos hidráulicos para facilitar su apertura.",
-            "Capacidad de 200 kg de carga.",
-            "Ignífugo.",
-            "Resistencia contra la oxidación y corrosión."
-        ],
-        material: "Acero galvanizado calibre 20 con un acabado de pintura electroestática color gris claro.",
-        dimensiones: [
-            "Largo: 1.75m",
-            "Alto: 1.00m",
-            "Profundidad: 0.90m"
-        ],
-        imagen: "img/colgantegrey.jpg",
-        imagenes: [
-            "img/grey1.png",
-            "img/grey2.jpg",
-            "img/grey3.jpg"
-        ],
-        tipo: ["venta"],
-        precios: {
-            venta: "U$S 930"
-        },
-        montevideo: "U$S 90",
-        maldonado: "U$S 150",
-      },
-      colganteblack: {
-        id: "colganteblack",
-        titulo: "Box Colgante Black",
-        caracteristicas: [
-            "Cerradura con triple punto de anclaje.",
-            "Posibilidad de amurarse a la pared o apoyarse sobre el suelo.",
-            "Capacidad de 150 kg. de carga.",
-            "Ignífugo.",
-            "Resistencia contra la oxidación y corrosión."
-        ],
-        material: "Acero galvanizado calibre 24 con un acabado de pintura electroestática color negro mate.",
-        dimensiones: [
-            "Largo: 2.00m",
-            "Alto: 1.00m",
-            "Profundidad: 0.55m"
-        ],
-        imagen: "img/colganteblack.jpg",
-        imagenes: [
-            "img/black1.jpg",
-            "img/black2.jpg",
-            "img/black3.jpg",
-            "img/black4.jpg",
-            "img/black5.jpg"
-        ],
-        tipo: ["venta", "alquiler"],
-        precios: {
-            venta: "U$S 700",
-            alquiler: "U$S 13/mes"
-        },
-        montevideo: "U$S 90",
-        maldonado: "U$S 150",
-      },
-      soportesverticales: {
+        soportesverticales: {
         id: "soportesverticales",
         titulo: "Box con Soportes Verticales",
         caracteristicas: [
@@ -95,6 +33,68 @@ const productos = {
             venta2: "Precio de venta 2.40m: U$S 1130",
             alquiler1: "Precio de alquiler 2.10m: U$S 20/mes",
             alquiler2: "Precio de venta 2.40m: U$S 22/mes"
+        },
+        montevideo: "U$S 90",
+        maldonado: "U$S 150",
+      },
+      colganteblack: {
+        id: "colganteblack",
+        titulo: "Box Colgante Black",
+        caracteristicas: [
+            "Cerradura con doble punto de anclaje.",
+            "Posibilidad de amurarse a la pared o apoyarse sobre el suelo.",
+            "Capacidad de 150 kg. de carga.",
+            "Ignífugo.",
+            "Resistencia contra la oxidación y corrosión."
+        ],
+        material: "Acero galvanizado calibre 24 con un acabado de pintura electroestática color negro mate.",
+        dimensiones: [
+            "Largo: 2.00m",
+            "Alto: 1.00m",
+            "Profundidad: 0.55m"
+        ],
+        imagen: "img/colganteblack.jpg",
+        imagenes: [
+            "img/black1.jpg",
+            "img/black2.jpg",
+            "img/black3.jpg",
+            "img/black4.jpg",
+            "img/black5.jpg"
+        ],
+        tipo: ["venta", "alquiler"],
+        precios: {
+            venta: "U$S 700",
+            alquiler: "U$S 13/mes"
+        },
+        montevideo: "U$S 90",
+        maldonado: "U$S 150",
+      },
+      colgantegrey: {
+        id: "colgantegrey",
+        titulo: "Box Colgante Grey",
+        caracteristicas: [
+            "Cerradura con triple punto de anclaje.",
+            "Posibilidad de poner candado.",
+            "Brazos hidráulicos para facilitar su apertura.",
+            "Capacidad de 200 kg de carga.",
+            "Ignífugo.",
+            "Resistencia contra la oxidación y corrosión."
+        ],
+        material: "Acero galvanizado calibre 20 con un acabado de pintura electroestática color gris claro.",
+        dimensiones: [
+            "Largo: 1.75m",
+            "Alto: 1.00m",
+            "Profundidad: 0.90m"
+        ],
+        imagen: "img/colgantegrey.jpg",
+        imagenes: [
+            "img/grey1.png",
+            "img/grey2.jpg",
+            "img/grey3.jpg"
+        ],
+        tipo: ["venta"],
+        precios: {
+            venta: "U$S 930"
         },
         montevideo: "U$S 90",
         maldonado: "U$S 150",
@@ -147,7 +147,8 @@ const productos = {
         ],
         imagen: "img/rackdetecho.jpg",
         imagenes: [
-            "img/rackdetecho1.jpg"
+            "img/rackdetecho1.jpg",
+            "img/rackdetecho.jpg"
         ],
         tipo: ["venta"],
         precios: {
@@ -168,13 +169,13 @@ if (p) {
   document.title = "Raiona | " + p.titulo;
 
   contenedor.innerHTML = `
-    <a href="index.html#catalogo" class="colorN text-decoration-none">< Volver al catálogo</a>
+    <a href="index.html#catalogo" class="colorN text-decoration-none volver">< Volver al catálogo</a>
     <div class="producto-detalle d-flex align-items-center" style="gap:20px; flex-wrap:wrap;">
-      <div class="imagen" style="flex:1; min-width:300px; padding:1rem;">
+      <div class="imagen" style="flex:1; min-width:300px;">
         <div id="carrusel" class="carrusel"></div>
       </div>
       
-      <div class="info" style="flex:1; min-width:300px; padding:1rem;">
+      <div class="info" style="flex:1; min-width:300px">
         <h2 class="mb-2">${p.titulo}</h2>
 
         ${p.caracteristicas ? `
@@ -205,7 +206,7 @@ if (p) {
       <!-- Precio venta -->
       ${p.precios?.venta && !p.precios.venta.toLowerCase().startsWith("desde") ? `
         <div>
-          <span class="button22">Precio de venta: ${p.precios.venta}</span>
+          <span class="button22">Precio de venta: <span class="negrita">${p.precios.venta}</span></span>
         </div>
       ` : ""}
 
@@ -214,44 +215,45 @@ if (p) {
       <!-- Precio alquiler -->
       ${p.precios?.alquiler && !p.precios.alquiler.toLowerCase().startsWith("desde") ? `
         <div>
-          <span class="button22">Precio de alquiler: ${p.precios.alquiler}</span>
+          <span class="button22">Precio de alquiler: <span class="negrita">${p.precios.alquiler}</span></span>
         </div>
       ` : ""}
 
       <div class="text-center my-3">
 
-      <!-- BLOQUE VENTA -->
+      <!-- BLOQUE VENTA UNIFICADO -->
       ${
-        Object.entries(p.precios).some(([key]) => key.startsWith("venta") && key !== "venta")
-          ? `<div class="d-flex justify-content-center gap-3 flex-wrap mb-2">
-              ${
-                Object.entries(p.precios)
-                  .filter(([key]) => key.startsWith("venta") && key !== "venta")
-                  .map(([key, value]) => `
-                    <span class="button22">${value}</span>
-                  `)
-                  .join("")
-              }
-            </div>`
+        p.precios.venta1 && p.precios.venta2
+          ? `
+            <div class="text-center mb-4">
+            <p class="mb-2">Precio de venta:<p>
+              <span style="display:inline-block;">
+                <span class="button22">2.10m: <span class="negrita">U$S ${p.precios.venta1.split(": U$S ")[1]}</span> |
+                2.40m: <span class="negrita">U$S ${p.precios.venta2.split(": U$S ")[1]}</span>
+              </span>
+            </div>
+          `
           : ""
       }
 
-      <!-- BLOQUE ALQUILER -->
+      <!-- BLOQUE ALQUILER UNIFICADO -->
       ${
-        Object.entries(p.precios).some(([key]) => key.startsWith("alquiler") && key !== "alquiler")
-          ? `<div class="d-flex justify-content-center gap-3 flex-wrap">
-              ${
-                Object.entries(p.precios)
-                  .filter(([key]) => key.startsWith("alquiler") && key !== "alquiler")
-                  .map(([key, value]) => `
-                    <span class="button22">${value}</span>
-                  `)
-                  .join("")
-              }
-            </div>`
+        p.precios.alquiler1 && p.precios.alquiler2
+          ? `
+            <div class="text-center mb-3">
+              <p class="mb-2">Precio de alquiler:</p>
+              <span style="display:inline-block;">
+                <span class="button22">2.10m: <span class="negrita">${p.precios.alquiler1.split(": ")[1]}</span> |
+                2.40m: <span class="negrita">${p.precios.alquiler2.split(": ")[1]}</span>
+              </span>
+            </div>
+          `
           : ""
       }
+
       </div>
+
+      <hr>
 
       ${p.montevideo ? `
         <div>
@@ -292,7 +294,7 @@ if (p) {
     ${p.precios?.alquiler ? `
       <div class="mt-2 text-center">
         <p><b class="colorN">Compra: </b>Conseguí tu propio Box para toda la vida, sin necesidad de mantenimiento y con garantía por 5 años.</p>
-        <p><b class="colorN">Alquiler: </b>El servicio de alquiler te brinda la posibilidad de tener un Box en tu propio garage abonando una pequeña cuota mensual mediante el débito automático de tu tarjeta de crédito.<b> El plazo de alquiler es por un mínimo de 12 meses.</b></p>
+        <p><b class="colorN">Alquiler: </b>El servicio de alquiler te brinda la posibilidad de tener un Box en tu propio garage abonando solamente la tasa de instalación y luego una pequeña cuota mensual mediante el débito automático de tu tarjeta de crédito.<b> El plazo de alquiler es por un mínimo de 12 meses.</b></p>
       </div>
     ` : `
       <div class="mt-2 text-center">

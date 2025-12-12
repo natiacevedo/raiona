@@ -248,10 +248,16 @@ hr {
 
 .button22 {
   border: var(--naranja) 1px solid;
+  font-size: 18px;
   padding: 8px 16px;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.negrita {
+  font-weight: bold;
+  color: var(--naranja);
 }
 
 .button2:hover {
@@ -360,6 +366,11 @@ form #button {
   display: block;
 }
 
+.volver, .imagen {
+    display: inline-block;
+    margin-bottom: 20px !important; /* o el valor que quieras */
+}
+
 .carrusel-btn {
   position: absolute;
   top: 50%;
@@ -375,6 +386,22 @@ form #button {
 
 #prev { left: 10px; }
 #next { right: 10px; }
+
+@media (max-width: 768px) {
+
+    /* Contenedor del carrusel full-width */
+    .carrusel {
+        width: 90vw;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .carrusel-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
 
 /* Proyectos */
 
