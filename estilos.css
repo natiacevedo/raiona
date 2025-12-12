@@ -247,12 +247,24 @@ hr {
 }
 
 .button22 {
+  display: inline-block;
+  width: auto;
   border: var(--naranja) 1px solid;
   font-size: 18px;
   padding: 8px 16px;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.button22 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.text-center > div > p {
+  margin-bottom: 6px !important;
+  margin-top: 0;
 }
 
 .negrita {

@@ -206,16 +206,14 @@ if (p) {
       <!-- Precio venta -->
       ${p.precios?.venta && !p.precios.venta.toLowerCase().startsWith("desde") ? `
         <div>
-          <span class="button22">Precio de venta: <span class="negrita">${p.precios.venta}</span></span>
+          <p class="button22">Precio de venta: <span class="negrita">${p.precios.venta}</span></p>
         </div>
       ` : ""}
-
-       <hr>
 
       <!-- Precio alquiler -->
       ${p.precios?.alquiler && !p.precios.alquiler.toLowerCase().startsWith("desde") ? `
         <div>
-          <span class="button22">Precio de alquiler: <span class="negrita">${p.precios.alquiler}</span></span>
+          <p class="button22">Precio de alquiler: <span class="negrita">${p.precios.alquiler}</span></p>
         </div>
       ` : ""}
 
@@ -225,12 +223,11 @@ if (p) {
       ${
         p.precios.venta1 && p.precios.venta2
           ? `
-            <div class="text-center mb-4">
-            <p class="mb-2">Precio de venta:<p>
-              <span style="display:inline-block;">
-                <span class="button22">2.10m: <span class="negrita">U$S ${p.precios.venta1.split(": U$S ")[1]}</span> |
-                2.40m: <span class="negrita">U$S ${p.precios.venta2.split(": U$S ")[1]}</span>
-              </span>
+            <div class="text-center mb-2">
+              <p class="mb-1">Precio de venta:<p>
+              <p class="button22">2.10m: <span class="negrita">U$S ${p.precios.venta1.split(": U$S ")[1]}</span> |
+              2.40m: <span class="negrita">U$S ${p.precios.venta2.split(": U$S ")[1]}</span>
+              </p>
             </div>
           `
           : ""
@@ -241,19 +238,16 @@ if (p) {
         p.precios.alquiler1 && p.precios.alquiler2
           ? `
             <div class="text-center mb-3">
-              <p class="mb-2">Precio de alquiler:</p>
-              <span style="display:inline-block;">
-                <span class="button22">2.10m: <span class="negrita">${p.precios.alquiler1.split(": ")[1]}</span> |
+              <p class="mb-1">Precio de alquiler:</p>
+              <p class="button22">2.10m: <span class="negrita">${p.precios.alquiler1.split(": ")[1]}</span> |
                 2.40m: <span class="negrita">${p.precios.alquiler2.split(": ")[1]}</span>
-              </span>
+              </p>
             </div>
           `
           : ""
       }
 
       </div>
-
-      <hr>
 
       ${p.montevideo ? `
         <div>
