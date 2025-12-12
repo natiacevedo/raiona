@@ -60,22 +60,23 @@ function filtrarCatalogo(filtro) {
 document.addEventListener("DOMContentLoaded", () => {
     const elementos = document.querySelectorAll(".animar");
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
+                obs.unobserve(entry.target); // ⭐ deja de observar para evitar parpadeos
             }
         });
     }, { threshold: 0.2 });
 
     elementos.forEach(el => observer.observe(el));
 
-    /* ⭐ Activar inmediatamente los elementos ya visibles al cargar,
-       útil cuando entras a index.html#catalogo o cualquier sección */
+    /* ⭐ Activa de inmediato los que ya están visibles al cargar */
     elementos.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
             el.classList.add("visible");
+            observer.unobserve(el); // ⭐ también los sacamos aquí
         }
     });
 });
