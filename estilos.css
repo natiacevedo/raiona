@@ -122,6 +122,14 @@ hr {
     }
 }
 
+/* Características */
+
+@media (max-width: 768px) {
+    .sintexto p {
+        display: none;
+    }
+}
+
 /* WhatsApp */
 
 .whatsapp-float {
