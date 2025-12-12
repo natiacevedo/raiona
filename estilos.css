@@ -19,7 +19,13 @@ html{
 
 @media (max-width: 768px) {
     section {
-        scroll-margin-top: 130px;
+        scroll-margin-top: 110px;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
     }
 }
 
@@ -62,10 +68,12 @@ hr {
 
 /* Banner */
 
+/* Banner */
 #banner {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 70vh; /* un poco más alto */
+  overflow: hidden;
 }
 
 .banner-video {
@@ -78,19 +86,39 @@ hr {
   transform: translate(-50%, -50%);
 }
 
-@media (max-width: 768px) {
-    #banner {
-        height: auto;
-    }
+.ver-catalogo {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--naranja);
+  color: var(--blanco);
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
 
+.ver-catalogo:hover {
+  background-color: var(--gris);
+}
+
+.ver-catalogo:active {
+    background-color: var(--gris);
+}
+
+/* Ajustes para mobile */
+@media (max-width: 768px) {
     .banner-video {
         position: relative;
         top: 0;
         left: 0;
         transform: none;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
+        width: 120%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 55% center; /* mueve el video hacia la derecha */
     }
 }
 
