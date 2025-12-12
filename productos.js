@@ -237,7 +237,7 @@ if (p) {
       ${
         p.precios.alquiler1 && p.precios.alquiler2
           ? `
-            <div class="text-center mb-3 w-100 px-0 sin-container-precios">
+            <div class="text-center mb-3 w-100 px-0">
               <p class="mb-1">Precio de alquiler:</p>
               <p class="button22">2.10m: <span class="negrita">${p.precios.alquiler1.split(": ")[1]}</span> |
                 2.40m: <span class="negrita">${p.precios.alquiler2.split(": ")[1]}</span>

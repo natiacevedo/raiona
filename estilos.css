@@ -417,6 +417,11 @@ form #button {
 
 /* Proyectos */
 
+.proy-text {
+  width: 70%;
+  margin: auto;
+}
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -477,6 +482,10 @@ form #button {
 
     .card-banner img {
         height: 220px;
+    }
+
+    .proy-text {
+      width: 100%;
     }
 }
 
