@@ -7,26 +7,6 @@ document.querySelectorAll('.navbar-collapse .nav-link').forEach(link => {
   });
 });
 
-// AUTOPLAY VIDEO
-
-document.addEventListener("DOMContentLoaded", function () {
-  const video = document.getElementById("heroVideo");
-
-  if (video) {
-    video.muted = true; // obligatorio
-    const playPromise = video.play();
-
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // fallback: intenta reproducir cuando el usuario interactúa
-        document.addEventListener("touchstart", () => {
-          video.play();
-        }, { once: true });
-      });
-    }
-  }
-});
-
 // === GENERAR CATALOGO ===
 function generarCatalogo() {
   const contenedor = document.getElementById("catalogoCards");
