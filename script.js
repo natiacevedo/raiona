@@ -7,6 +7,23 @@ document.querySelectorAll('.navbar-collapse .nav-link').forEach(link => {
   });
 });
 
+// AUTOPLAY VIDEO
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.querySelector(".banner-video");
+  if (!video) return;
+
+  video.muted = true;
+  video.playsInline = true;
+
+  const tryPlay = () => {
+    video.play().catch(() => {});
+  };
+
+  tryPlay();
+  document.addEventListener("touchstart", tryPlay, { once: true });
+});
+
 // === GENERAR CATALOGO ===
 function generarCatalogo() {
   const contenedor = document.getElementById("catalogoCards");
