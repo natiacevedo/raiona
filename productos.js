@@ -21,6 +21,7 @@ const productos = {
         ],
         imagen: "img/soportesverticales.jpg",
         imagenes: [
+            "img/soportesverticales copia.jpg",
             "img/soportesverticales1.jpg",
             "img/soportesverticales2.jpg",
             "img/soportesverticales3.jpg"
@@ -55,6 +56,7 @@ const productos = {
         ],
         imagen: "img/colganteblack.jpg",
         imagenes: [
+          "img/colganteblack copia.jpg",
             "img/black1.jpg",
             "img/black2.jpg",
             "img/black3.jpg",
@@ -88,6 +90,7 @@ const productos = {
         ],
         imagen: "img/colgantegrey.jpg",
         imagenes: [
+            "img/colgantegrey copia.jpg",
             "img/grey1.png",
             "img/grey2.jpg",
             "img/grey3.jpg"
@@ -119,6 +122,7 @@ const productos = {
         ],
         imagen: "img/doble.jpg",
         imagenes: [
+          "img/doble copia.jpg",
             "img/doble1.jpg",
             "img/doble2.jpg",
             "img/doble3.jpg"
@@ -147,8 +151,8 @@ const productos = {
         ],
         imagen: "img/rackdetecho.jpg",
         imagenes: [
-            "img/rackdetecho1.jpg",
-            "img/rackdetecho.jpg"
+            "img/rackdetecho copia.jpg",
+            "img/rackdetecho1.jpg"
         ],
         tipo: ["venta"],
         precios: {
