@@ -3,7 +3,7 @@
     --gris-oscuro: #363636;
     --naranja: #ff7a02;
     --negro: #1a1a1a;
-    --blanco: #f5f5f5;
+    --blanco: #fbfbf9;
 }
 
 *{
@@ -418,7 +418,7 @@ form #button {
 /* Proyectos */
 
 .proy-text {
-  width: 70%;
+  width: 60%;
   margin: auto;
 }
 
