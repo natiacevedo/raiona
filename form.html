@@ -97,7 +97,14 @@
                             title="Ingresá un documento válido (7 u 8 dígitos)">
                         </div>
                         <div>
-                            <input type="tel" name="telefono" placeholder="Teléfono" required>
+                            <input 
+                            type="tel"
+                            name="telefono"
+                            placeholder="Número de contacto"
+                            required
+                            pattern="[0-9 +()-]{8,}"
+                            title="Ingresá un número de contacto válido"
+                            >
                         </div>
                     </div>
 
