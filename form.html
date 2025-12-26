@@ -78,11 +78,15 @@
 
                     <div class="fila-2">
                         <div>
-                            <input type="text" name="nombre" placeholder="Nombre completo" required> 
+                            <input type="text" name="nombre" placeholder="Nombre" required>
                         </div>
                         <div>
-                            <input type="email" name="email" placeholder="Correo electrónico" required>
+                            <input type="text" name="apellido" placeholder="Apellido" required>
                         </div>
+                    </div>
+
+                    <div class="fila-1">
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
                     </div>
 
                     <div class="fila-2">
@@ -129,17 +133,15 @@
                     </div>
 
                     <!-- FILA 2: NÚMERO TARJETA -->
-                    <div class="fila-1">
-                        <input 
-                        type="text"
-                        name="tarjeta_numero"
-                        placeholder="Número de tarjeta"
-                        required
-                        inputmode="numeric"
-                        pattern="[0-9]{13,19}"
-                        title="Ingresá un número de tarjeta válido (13 a 19 dígitos)"
-                        >
-                    </div>
+                    <input 
+                    type="text"
+                    name="tarjeta_numero"
+                    placeholder="Número de tarjeta"
+                    required
+                    inputmode="numeric"
+                    pattern="[0-9]{16}"
+                    title="La tarjeta debe tener exactamente 16 dígitos"
+                    >
 
                     <!-- FILA 3: MES + AÑO -->
                     <div class="fila-2">
@@ -179,7 +181,7 @@
                         </label>
                     </div>
 
-                    <button class="button2 ancho-button" type="submit">Alquilar Box</button>
+                    <button class="button2 ancho-button" type="submit">Solicitar Alquiler</button>
                 </form>
 
             </div>
