@@ -52,6 +52,19 @@ hr {
     color: var(--naranja);
 }
 
+.thankyou-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.thankyou-page main {
+    flex: 1;
+    display: flex;
+    align-items: center;      /* centra vertical */
+    justify-content: center;  /* centra horizontal */
+}
+
 /* Navbar */
 
 .fondo {
