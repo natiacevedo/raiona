@@ -83,8 +83,15 @@
                 <h2>Contrato de arrendamiento</h2>
                 <p class="ancho">El servicio de alquiler te brinda la posibilidad de tener un Box en tu propio garaje abonando una pequeña cuota mensual mediante el débito automático de tu tarjeta de crédito. <b>El plazo de alquiler es por un mínimo de 12 meses.</b></p>
 
-                <form name="pedido-box" method="POST" data-netlify="true" action="/gracias-alquiler.html">
-                    <input type="hidden" name="form-name" value="pedido-box">
+                <form class="form-alquiler" name="pedido-box" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias-alquiler.html">
+                <input type="hidden" name="form-name" value="pedido-box">
+
+                <p hidden>
+                    <label>
+                    Don’t fill this out:
+                    <input name="bot-field">
+                    </label>
+                </p>
 
                     <h6>DATOS DEL CLIENTE:</h6>
 
@@ -105,12 +112,12 @@
                         <div>
                             <input 
                             type="text"
-                            name="documento"
-                            placeholder="Documento (sin puntos ni guión)"
+                            name="documento_rut"
+                            placeholder="Documento o RUT (sin puntos ni guiones)"
                             required
                             inputmode="numeric"
-                            pattern="[0-9]{7,8}"
-                            title="Ingresá un documento válido (7 u 8 dígitos)">
+                            pattern="([0-9]{7,8}|[0-9]{12})"
+                            title="Ingresá un documento válido (7 u 8 dígitos) o RUT (12 dígitos)">
                         </div>
                         <div>
                             <input 

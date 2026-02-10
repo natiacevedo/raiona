@@ -565,9 +565,22 @@ form #button {
     color: #333;
 }
 
-.ancho {
+@media (min-width: 768px) {
+  .ancho {
     width: 80%;
     margin: 0 auto;
+  }
+}
+
+.form-alquiler {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .form-alquiler {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 
 .ancho-button {

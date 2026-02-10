@@ -209,8 +209,15 @@
                 <h2 class="text-center">Contacto</h2>
                 <p class="text-center">Consultanos tus dudas o sugerencias</p>
 
-                <form name="contacto" method="POST" data-netlify="true" action="/gracias-contacto.html" class="mt-4">
-                    <input type="hidden" name="form-name" value="contacto">
+                <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias-contacto.html" class="mt-4">
+                <input type="hidden" name="form-name" value="contacto">
+
+                <p hidden>
+                    <label>
+                    Don’t fill this out:
+                    <input name="bot-field">
+                    </label>
+                </p>
 
                     <div class="row g-3">
 
