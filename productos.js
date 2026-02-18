@@ -30,10 +30,10 @@ const productos = {
         precios: {
             venta: "desde U$S 1080",
             alquiler: "desde U$S 20/mes",
-            venta1: "Precio de venta 2.10m: U$S 1080",
-            venta2: "Precio de venta 2.40m: U$S 1130",
-            alquiler1: "Precio de alquiler 2.10m: U$S 20/mes",
-            alquiler2: "Precio de venta 2.40m: U$S 22/mes"
+            venta1: "2.10m: U$S 1080",
+            venta2: "2.40m: U$S 1130",
+            alquiler1: "2.10m: U$S 20/mes",
+            alquiler2: "2.40m: U$S 22/mes"
         },
         montevideo: "U$S 90",
         maldonado: "U$S 150",
@@ -161,6 +161,41 @@ const productos = {
         montevideo: "U$S 90",
         maldonado: "U$S 150",
       },
+      cajasplasticas: {
+        id: "cajasplasticas",
+        titulo: "Cajas plásticas",
+        caracteristicas: [
+            "Alta densidad y resistencia.",
+            "Capacidad de 102 litros.",
+            "Soporta hasta 25kg.",
+            "Perforada en laterales con posibilidad de cerrarlas con presinto o candado."
+        ],
+        material: "Plástico de alta resistencia.",
+        dimensiones: [
+            "Largo Caja: 72cm",
+            "Alto: 38cm",
+            "Medida del total (3 cajas): 55cm x 2,18m",
+            "Medida del total (6 cajas): 1,05m x 2,18m",
+            "Medida del total (9 cajas): 1,50m x 2,18m"
+        ],
+        imagen: "img/Cajas9.png",
+        imagenes: [
+            "img/cajasplasticas-copia2.png",
+            "img/cajasplasticas-copia.png",
+            "img/profundidad.jpeg",
+            "img/cajasplasticas instalacion.jpeg",
+            "img/cajasplasticas instalacion2.jpeg"
+        ],
+        tipo: ["venta"],
+        precios: {
+            venta: "desde U$S 197usd",
+            venta1: "Set de rieles x3 cajas: U$S 197",
+            venta2: "Set de rieles x6 cajas: U$S 379",
+            venta3: "Set de rieles x9 cajas: U$S 478"
+        },
+        montevideo: "U$S 50",
+        maldonado: "U$S 50 + envío por agencia",
+      },
 };
 
 const params = new URLSearchParams(window.location.search);
@@ -223,33 +258,61 @@ if (p) {
 
       <div class="text-center my-3">
 
-      <!-- BLOQUE VENTA UNIFICADO -->
-      ${
-        p.precios.venta1 && p.precios.venta2
-          ? `
-            <div class="text-center mb-2">
-              <p class="mb-1">Precio de venta:<p>
-              <p class="button22">2.10m: <span class="negrita">U$S ${p.precios.venta1.split(": U$S ")[1]}</span> |
-              2.40m: <span class="negrita">U$S ${p.precios.venta2.split(": U$S ")[1]}</span>
-              </p>
-            </div>
-          `
-          : ""
-      }
+<!-- BLOQUE VENTA RESPONSIVE -->
+${
+  Object.keys(p.precios || {})
+    .filter(key => key.startsWith("venta") && key !== "venta")
+    .length > 0
+    ? `
+      <div class="text-center mb-2">
+        <p class="mb-2">Precio de venta:</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          ${Object.keys(p.precios)
+            .filter(key => key.startsWith("venta") && key !== "venta")
+            .map(key => {
+              const texto = p.precios[key];
+              const partes = texto.split(":");
+              return `
+                <span class="button22 px-3 py-1">
+                  ${partes[0]}:
+                  <span class="negrita">${partes[1]}</span>
+                </span>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `
+    : ""
+}
 
-      <!-- BLOQUE ALQUILER UNIFICADO -->
-      ${
-        p.precios.alquiler1 && p.precios.alquiler2
-          ? `
-            <div class="text-center mb-3 w-100 px-0">
-              <p class="mb-1">Precio de alquiler:</p>
-              <p class="button22">2.10m: <span class="negrita">${p.precios.alquiler1.split(": ")[1]}</span> |
-                2.40m: <span class="negrita">${p.precios.alquiler2.split(": ")[1]}</span>
-              </p>
-            </div>
-          `
-          : ""
-      }
+<!-- BLOQUE ALQUILER RESPONSIVE -->
+${
+  Object.keys(p.precios || {})
+    .filter(key => key.startsWith("alquiler") && key !== "alquiler")
+    .length > 0
+    ? `
+      <div class="text-center mb-3">
+        <p class="mb-2">Precio de alquiler:</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          ${Object.keys(p.precios)
+            .filter(key => key.startsWith("alquiler") && key !== "alquiler")
+            .map(key => {
+              const texto = p.precios[key];
+              const partes = texto.split(":");
+              return `
+                <span class="button22 py-1">
+                  ${partes[0]}:
+                  <span class="negrita">${partes[1]}</span>
+                </span>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `
+    : ""
+}
 
       </div>
 
