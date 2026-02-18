@@ -163,14 +163,14 @@ const productos = {
       },
       cajasplasticas: {
         id: "cajasplasticas",
-        titulo: "Cajas plásticas",
+        titulo: "Rieles con cajas",
         caracteristicas: [
             "Alta densidad y resistencia.",
             "Capacidad de 102 litros.",
             "Soportan hasta 25kg.",
             "Perforadas en laterales con posibilidad de cerrarlas con presinto o candado."
         ],
-        material: "Plástico de alta resistencia.",
+        material: "Rieles de acero galvanizado y cajas de plástico de alta resistencia.",
         dimensiones: [
             "Largo caja: 72cm",
             "Ancho caja: 49cm",
