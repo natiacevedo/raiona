@@ -167,12 +167,13 @@ const productos = {
         caracteristicas: [
             "Alta densidad y resistencia.",
             "Capacidad de 102 litros.",
-            "Soporta hasta 25kg.",
-            "Perforada en laterales con posibilidad de cerrarlas con presinto o candado."
+            "Soportan hasta 25kg.",
+            "Perforadas en laterales con posibilidad de cerrarlas con presinto o candado."
         ],
         material: "Plástico de alta resistencia.",
         dimensiones: [
-            "Largo Caja: 72cm",
+            "Largo caja: 72cm",
+            "Ancho caja: 49cm",
             "Alto: 38cm",
             "Medida del total (3 cajas): 55cm x 2,18m",
             "Medida del total (6 cajas): 1,05m x 2,18m",
