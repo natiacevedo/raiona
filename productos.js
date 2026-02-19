@@ -163,28 +163,32 @@ const productos = {
       },
       cajasplasticas: {
         id: "cajasplasticas",
-        titulo: "Rieles con cajas",
+        titulo: "Riel-Box",
+        descripcion: "Sistema de rieles con soporte al techo para la colocación de cajas de PVC de alta densidad. Brinda la posibilidad de aprovechar estratégicamente el espacio para almacenamiento.",
+        caracteristicasrieles: [
+            "Rieles de acero.",
+        ],
         caracteristicas: [
             "Alta densidad y resistencia.",
             "Capacidad de 102 litros.",
             "Soportan hasta 25kg.",
-            "Perforadas en laterales con posibilidad de cerrarlas con presinto o candado."
+            "Posibilidad de cerrarlas con presinto o candado para mayor seguridad."
         ],
-        material: "Rieles de acero galvanizado y cajas de plástico de alta resistencia.",
+        material: "Rieles de acero galvanizado y cajas PVC de alta resistencia.",
         dimensiones: [
-            "Largo caja: 72cm",
-            "Ancho caja: 49cm",
-            "Alto: 38cm",
+            "Largo de la caja: 72cm",
+            "Ancho de la caja: 49cm",
+            "Alto de la caja: 38cm",
             "Medida del total (3 cajas): 55cm x 2,18m",
-            "Medida del total (6 cajas): 1,05m x 2,18m",
-            "Medida del total (9 cajas): 1,50m x 2,18m"
+            "Medida del total (6 cajas): 1,10m x 2,18m",
+            "Medida del total (9 cajas): 1,65m x 2,18m"
         ],
         imagen: "img/Cajas9.png",
         imagenes: [
+            "img/cajasplasticas instalacion.jpeg",
             "img/cajasplasticas-copia2.png",
             "img/cajasplasticas-copia.png",
             "img/profundidad.jpeg",
-            "img/cajasplasticas instalacion.jpeg",
             "img/cajasplasticas instalacion2.jpeg"
         ],
         tipo: ["venta"],
@@ -218,9 +222,22 @@ if (p) {
       <div class="info" style="flex:1; min-width:300px">
         <h2 class="mb-2">${p.titulo}</h2>
 
+        ${p.descripcion ? `
+          <p class="mt-2">${p.descripcion}</p>
+        ` : ""}
+
+        ${p.caracteristicasrieles ? `
+          <div>
+            <strong>Características de los rieles:</strong>
+            <ul>
+              ${p.caracteristicasrieles.map(item => `<li>${item}</li>`).join("")}
+            </ul>
+          </div>
+        ` : ""}
+
         ${p.caracteristicas ? `
           <div>
-            <strong>Características:</strong>
+            <strong>${p.caracteristicasrieles ? "Características de las cajas de PVC:" : "Características:"}</strong>
             <ul>
               ${p.caracteristicas.map(item => `<li>${item}</li>`).join("")}
             </ul>
@@ -259,61 +276,61 @@ if (p) {
 
       <div class="text-center my-3">
 
-<!-- BLOQUE VENTA RESPONSIVE -->
-${
-  Object.keys(p.precios || {})
-    .filter(key => key.startsWith("venta") && key !== "venta")
-    .length > 0
-    ? `
-      <div class="text-center mb-2">
-        <p class="mb-2">Precio de venta:</p>
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-          ${Object.keys(p.precios)
-            .filter(key => key.startsWith("venta") && key !== "venta")
-            .map(key => {
-              const texto = p.precios[key];
-              const partes = texto.split(":");
-              return `
-                <span class="button22 px-3 py-1">
-                  ${partes[0]}:
-                  <span class="negrita">${partes[1]}</span>
-                </span>
-              `;
-            })
-            .join("")}
-        </div>
-      </div>
-    `
-    : ""
-}
+      <!-- BLOQUE VENTA RESPONSIVE -->
+      ${
+        Object.keys(p.precios || {})
+          .filter(key => key.startsWith("venta") && key !== "venta")
+          .length > 0
+          ? `
+            <div class="text-center mb-2">
+              <p class="mb-2">Precio de venta:</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                ${Object.keys(p.precios)
+                  .filter(key => key.startsWith("venta") && key !== "venta")
+                  .map(key => {
+                    const texto = p.precios[key];
+                    const partes = texto.split(":");
+                    return `
+                      <span class="button22 px-3 py-1">
+                        ${partes[0]}:
+                        <span class="negrita">${partes[1]}</span>
+                      </span>
+                    `;
+                  })
+                  .join("")}
+              </div>
+            </div>
+          `
+          : ""
+      }
 
-<!-- BLOQUE ALQUILER RESPONSIVE -->
-${
-  Object.keys(p.precios || {})
-    .filter(key => key.startsWith("alquiler") && key !== "alquiler")
-    .length > 0
-    ? `
-      <div class="text-center mb-3">
-        <p class="mb-2">Precio de alquiler:</p>
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-          ${Object.keys(p.precios)
-            .filter(key => key.startsWith("alquiler") && key !== "alquiler")
-            .map(key => {
-              const texto = p.precios[key];
-              const partes = texto.split(":");
-              return `
-                <span class="button22 py-1">
-                  ${partes[0]}:
-                  <span class="negrita">${partes[1]}</span>
-                </span>
-              `;
-            })
-            .join("")}
-        </div>
-      </div>
-    `
-    : ""
-}
+      <!-- BLOQUE ALQUILER RESPONSIVE -->
+      ${
+        Object.keys(p.precios || {})
+          .filter(key => key.startsWith("alquiler") && key !== "alquiler")
+          .length > 0
+          ? `
+            <div class="text-center mb-3">
+              <p class="mb-2">Precio de alquiler:</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                ${Object.keys(p.precios)
+                  .filter(key => key.startsWith("alquiler") && key !== "alquiler")
+                  .map(key => {
+                    const texto = p.precios[key];
+                    const partes = texto.split(":");
+                    return `
+                      <span class="button22 py-1">
+                        ${partes[0]}:
+                        <span class="negrita">${partes[1]}</span>
+                      </span>
+                    `;
+                  })
+                  .join("")}
+              </div>
+            </div>
+          `
+          : ""
+      }
 
       </div>
 
@@ -353,16 +370,24 @@ ${
  
     <hr>
 
+    <div class="mt-2 text-center">
+
+    ${p.id !== "cajasplasticas" ? `
+      <p>
+        <b class="colorN">Compra: </b>
+        Conseguí tu propio Box para toda la vida, sin necesidad de mantenimiento y con garantía por 5 años.
+      </p>
+    ` : ""}
+
     ${p.precios?.alquiler ? `
-      <div class="mt-2 text-center">
-        <p><b class="colorN">Compra: </b>Conseguí tu propio Box para toda la vida, sin necesidad de mantenimiento y con garantía por 5 años.</p>
-        <p><b class="colorN">Alquiler: </b>El servicio de alquiler te brinda la posibilidad de tener un Box en tu propio garage abonando solamente la tasa de instalación y luego una pequeña cuota mensual mediante el débito automático de tu tarjeta de crédito.<b> El plazo de alquiler es por un mínimo de 12 meses.</b></p>
-      </div>
-    ` : `
-      <div class="mt-2 text-center">
-        <p><b class="colorN">Compra: </b>Conseguí tu propio Box para toda la vida, sin necesidad de mantenimiento y con garantía por 5 años.</p>
-      </div>
-    `}
+      <p>
+        <b class="colorN">Alquiler: </b>
+        El servicio de alquiler te brinda la posibilidad de tener un Box en tu propio garage abonando solamente la tasa de instalación y luego una pequeña cuota mensual mediante el débito automático de tu tarjeta de crédito.
+        <b> El plazo de alquiler es por un mínimo de 12 meses.</b>
+      </p>
+    ` : ""}
+
+  </div>
 
 
     ${p.link ? `
