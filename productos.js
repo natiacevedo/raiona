@@ -174,7 +174,7 @@ const productos = {
             "Soportan hasta 25kg.",
             "Posibilidad de cerrarlas con presinto o candado para mayor seguridad."
         ],
-        material: "Rieles de acero galvanizado y cajas PVC de alta resistencia.",
+        material: "Rieles de acero y cajas PVC de alta resistencia.",
         dimensiones: [
             "Largo de la caja: 72cm",
             "Ancho de la caja: 49cm",
