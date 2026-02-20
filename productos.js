@@ -172,7 +172,7 @@ const productos = {
             "Alta densidad y resistencia.",
             "Capacidad de 102 litros.",
             "Soportan hasta 25kg.",
-            "Posibilidad de cerrarlas con presinto o candado para mayor seguridad."
+            "Posibilidad de cerrarlas con precinto o candado para mayor seguridad."
         ],
         material: "Rieles de acero y cajas PVC de alta resistencia.",
         dimensiones: [
